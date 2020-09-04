@@ -14,7 +14,7 @@
 | family_name      | string  | null: false |
 | first_name_kana  | string  | null: false |
 | family_name_kana | string  | null: false |
-| date             | string  | null: false |
+| date             | date    | null: false |
 
 
 
@@ -29,7 +29,7 @@
 
 | Column               |   Type    |         Options                |
 | -------------------- | --------  | ------------------------------ |
-| user_id              | string    | null: false,                   |
+| user_id              | string    | null: false, foreign_key: true |
 | name                 | string    | null: false,                   |
 | name_description     | text      | null: false,                   |
 | name_category_id     | integer   | null: false,                   |
@@ -44,44 +44,40 @@
 ### Association
 
 - belongs_to :user
-- has_many :user_item
+- has_many :user_items
 
 
 
-## users_items テーブル
+### purchase テーブル
 
-| Column               |   Type    |         Options                |
-| -------------------- | --------  | ------------------------------ |
-| user_id              | integer   | null: false, foreign_key: true |
-| itmes_id             | integer   | null: false, foreign_key: true |
+| item_id         | integer   | null: false, foreign_key: true  |
+| user_id         | integer   | null: false, foreign_key: true  |
 
-
-- belong_to :item
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- has_one : purchase
+- has_one    :address
 
 
 
 
 
-## purchases テーブル
+## address テーブル
 
-| Column           | Type       | Options                      |
-| ---------------- | ---------- | ---------------------------- |
-| user_item_id     | integer    | null: false,                 |
-| prefectures_id   | integer    | null: false,                 |
-| post             | string     | null: false,                 |
-| city             | string     | null: false,                 |
-| address          | string     | null: false,                 | 
-| building         | string     |                              |
-| mobile           | string     | null: false,                 |
+| Column           | Type       | Options                         |
+| ---------------- | ---------- | ----------------------------    |
+| user_item_id     | integer    | null: false, foreign_key: true  |
+| prefectures_id   | integer    | null: false,                    |
+| post             | string     | null: false,                    |
+| city             | string     | null: false,                    |
+| address          | string     | null: false,                    | 
+| building         | string     |                                 |
+| mobile           | string     | null: false,                    |
 
 
 
 ### Association
 
-- belongs_to :user_item
+- belongs_to : purchase
