@@ -22,14 +22,13 @@
 
 - has_many :items
 - has_many :purchases
-- has_many :users_items
 
 
 ## items テーブル
 
 | Column               |   Type    |         Options                |
 | -------------------- | --------  | ------------------------------ |
-| user_id              | string    | null: false, foreign_key: true |
+| user_id              | integer   | null: false, foreign_key: true |
 | name                 | string    | null: false,                   |
 | name_description     | text      | null: false,                   |
 | name_category_id     | integer   | null: false,                   |
@@ -44,14 +43,15 @@
 ### Association
 
 - belongs_to :user
-- has_many :user_items
+- has_one : purchase
 
 
 
 ### purchase テーブル
-
-| item_id         | integer   | null: false, foreign_key: true  |
-| user_id         | integer   | null: false, foreign_key: true  |
+| Column           | Type       | Options                         |
+| ---------------- | ---------- | ----------------------------    |
+| item_id          | integer    | null: false, foreign_key: true    |
+| user_id          | integer    | null: false, foreign_key: true    |
 
 
 ### Association
@@ -62,13 +62,11 @@
 
 
 
-
-
 ## address テーブル
 
 | Column           | Type       | Options                         |
 | ---------------- | ---------- | ----------------------------    |
-| user_item_id     | integer    | null: false, foreign_key: true  |
+| purchase_id      | integer    | null: false, foreign_key: true  |
 | prefectures_id   | integer    | null: false,                    |
 | post             | string     | null: false,                    |
 | city             | string     | null: false,                    |
