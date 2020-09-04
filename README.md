@@ -50,7 +50,7 @@
 | item                 | string    | null: false,                   |
 | ITEM_DESCRIPTION     | string    | null: false,                   |
 | item_category        | string    | null: false,                   |
-| price                | string    | null:false                     |
+| price                | string    | null: false,                     |
 
 
 
