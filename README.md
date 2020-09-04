@@ -29,11 +29,11 @@
 
 | Column               |   Type    |         Options                |
 | -------------------- | --------  | ------------------------------ |
-| use_id               | string    | null: false,                   |
-| item                 | string    | null: false,                   |
-| item_description     | text      | null: false,                   |
-| item_category_id     | integer   | null: false,                   |
-| item_condition_id    | integer   | null: false,                   |
+| user_id              | string    | null: false,                   |
+| name                 | string    | null: false,                   |
+| name_description     | text      | null: false,                   |
+| name_category_id     | integer   | null: false,                   |
+| name_condition_id    | integer   | null: false,                   |
 | send_burden_id       | integer   | null: false,                   |
 | send_area_id         | integer   | null: false,                   |
 | send_day_id          | integer   | null: false,                   |
@@ -44,22 +44,24 @@
 ### Association
 
 - belongs_to :user
-- has_one : purchase
+- has_many :user_item
+
 
 
 ## users_items テーブル
 
 | Column               |   Type    |         Options                |
 | -------------------- | --------  | ------------------------------ |
-| user_id              | integer   | null: false,foreign_key: true  |
+| user_id              | integer   | null: false, foreign_key: true |
 | itmes_id             | integer   | null: false, foreign_key: true |
 
 
-
+- belong_to :item
 
 ### Association
 
 - belongs_to :user
+- belongs_to :item
 - has_one : purchase
 
 
@@ -70,6 +72,7 @@
 
 | Column           | Type       | Options                      |
 | ---------------- | ---------- | ---------------------------- |
+| user_item_id     | integer    | null: false,                 |
 | prefectures_id   | integer    | null: false,                 |
 | post             | string     | null: false,                 |
 | city             | string     | null: false,                 |
@@ -81,5 +84,4 @@
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
+- belongs_to :user_item
