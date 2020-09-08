@@ -5,7 +5,7 @@
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
-    <%= form_with local: true do |f| %>
+    <%= form_with model: @item,local: true do |f| %>
 
     <%# インスタンスを渡して、エラー発生時にメッセージが表示されるようにしましょう。%>
     <%# render 'shared/error_messages', model: f.object %>
@@ -50,12 +50,12 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:name_category_id, NameCategory.all, :id, :name, {}, {class:"select-box", id:"name_category_id"}) %>
+        <%= f.collection_select(:name_category_id, NameCategory.all, :id, :name_category_id, {}, {class:"select-box", id:"name_category_id"}) %>
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:name_condition_id, NameCondition.all, :id, :name, {}, {class:"select-box", id:"name_condition_id"}) %>
+        <%= f.collection_select(:name_condition_id, NameCondition.all, :id, :name_condition_id", {}, {class:"select-box", id:"name_condition_id"}) %>
       </div>
     </div>
     <%# /商品の詳細 %>
@@ -99,7 +99,7 @@
             <span class="indispensable">必須</span>
           </div>
           <span class="sell-yen">¥</span>
-          <%= f.text_field :preice, class:"price-input", id:"price", placeholder:"例）300" %>
+          <%= f.text_field :price, class:"price-input", id:"price", placeholder:"例）300" %>
         </div>
         <div class="price-content">
           <span>販売手数料 (10%)</span>
