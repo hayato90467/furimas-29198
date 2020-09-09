@@ -67,36 +67,36 @@ describe User do
       it 'ユーザの本名が漢字、平仮名、カタカナで入力させること' do
         @user.family_name = '1234556'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name is invalid")
+        expect(@user.errors.full_messages).to include('Family name is invalid')
       end
       it 'ユーザの本名が漢字、平仮名、カタカナで入力させること' do
         @user.first_name = '1234556'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name is invalid")
+        expect(@user.errors.full_messages).to include('First name is invalid')
       end
 
       it 'ユーザのフリガナ部分を記載をカタカナで入力させること' do
         @user.family_name_kana = 'あべ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name kana is invalid")
+        expect(@user.errors.full_messages).to include('Family name kana is invalid')
       end
       it 'ユーザのフリガナ部分の記載をカタカナで入力させること' do
         @user.first_name_kana = 'あべ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana is invalid")
+        expect(@user.errors.full_messages).to include('First name kana is invalid')
       end
-          it '重複するメールアドレスは登録できない' do
-          @user.save
-          another_user = FactoryBot.build(:user)
-          another_user.email = @user.email
-          another_user.valid?
-          expect(another_user.errors.full_messages).to include("Email has already been taken")
-        end
-        it 'メールアドレスに@がないと登録できない' do
-          @user.email = 'hayato90467gmail'
-          @user.valid?
-          expect(@user.errors.full_messages).to include("Email is invalid")
-       end
+      it '重複するメールアドレスは登録できない' do
+        @user.save
+        another_user = FactoryBot.build(:user)
+        another_user.email = @user.email
+        another_user.valid?
+        expect(another_user.errors.full_messages).to include('Email has already been taken')
+      end
+      it 'メールアドレスに@がないと登録できない' do
+        @user.email = 'hayato90467gmail'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Email is invalid')
+      end
     end
   end
 end

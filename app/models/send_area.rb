@@ -46,4 +46,4 @@ class SendArea < ActiveHash::Base
     { id: 44, name: '鹿児島県' },
     { id: 45, name: '沖縄県' }
   ]
-  end
+end
