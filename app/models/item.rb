@@ -12,11 +12,11 @@ class Item < ApplicationRecord
   
    belongs_to :user
   # # has_one : purchase
-
-  belongs_to_active_hash :name_category_id
-  belongs_to_active_hash :name_condition_id
-  belongs_to_active_hash :send_burden_id
-  belongs_to_active_hash :send_day_id
-  belongs_to_active_hash :send_area_id
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :name_category
+  belongs_to_active_hash :name_condition
+  belongs_to_active_hash :send_burden
+  belongs_to_active_hash :send_day
+  belongs_to_active_hash :send_area
 
 end

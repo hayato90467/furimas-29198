@@ -1,7 +1,7 @@
 <div class="items-sell-contents">
   <header class="items-sell-header">
     <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
-
+        <script src="index.js"></script>
   </header>
   <div class="items-sell-main">
     <h2 class="items-sell-title">商品の情報を入力</h2>
@@ -50,12 +50,12 @@
           カテゴリー
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:name_category_id, NameCategory.all, :id, :name_category_id, {}, {class:"select-box", id:"name_category_id"}) %>
+        <%= f.collection_select(:name_category_id, NameCategory.all, :id, :name, {}, {class:"select-box", id:"name_category_id"}) %>
         <div class="weight-bold-text">
           商品の状態
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:name_condition_id, NameCondition.all, :id, :name_condition_id", {}, {class:"select-box", id:"name_condition_id"}) %>
+        <%= f.collection_select(:name_condition_id, NameCondition.all, :id, :name, {}, {class:"select-box", id:"name_condition_id"}) %>
       </div>
     </div>
     <%# /商品の詳細 %>
