@@ -63,14 +63,18 @@ describe Item do
          it '販売価格は半角数字のみであること' do
            @item.price = 'アイウエオ'
            @item.valid?
-           binding.pry
            expect(@item.errors.full_messages).to include("Price is invalid")
         end
-        it '価格の範囲が、¥300~¥9,999,999の間で入力させること' do
-          @item.price = '1234556'
+        it 'priceが299円未満では保存できないこと' do
+          @item.price = '299'
           @item.valid?
-          expect(@user.errors.full_messages).to include('Family name is invalid')
+          expect(@item.errors.full_messages).to include("Price is out of setting range")
         end
+          it 'priceが10,000,000円を超過すると保存できないこと' do
+            @item.price = '10000001'
+            @item.valid?
+            expect(@item.errors.full_messages).to include("Price is out of setting range")
+       end
     end
   end
 end
