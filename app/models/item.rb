@@ -3,11 +3,11 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :name_description, presence: true
   validates :name_category_id, presence: true, numericality: { other_than: 1 }
-  validates :name_condition_id, presence: true, numericality: { other_than: 1}
-  validates :send_burden_id, presence: true, numericality: { other_than: 1}
-  validates :send_day_id, presence: true, numericality: { other_than: 1}
+  validates :name_condition_id, presence: true, numericality: { other_than: 1 }
+  validates :send_burden_id, presence: true, numericality: { other_than: 1 }
+  validates :send_day_id, presence: true, numericality: { other_than: 1 }
   validates :send_area_id, presence: true, numericality: { other_than: 1}
-  validates :price, presence: true
+  validates :price, presence: true,format:  { with: /\A[a-zA-Z0-9]+\z/ }
 
   belongs_to :user
   # # has_one : purchase
