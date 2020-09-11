@@ -11,7 +11,6 @@ class Item < ApplicationRecord
   numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
 
   belongs_to :user
-  # # has_one : purchase
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :name_category

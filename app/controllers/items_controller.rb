@@ -9,15 +9,11 @@ class ItemsController < ApplicationController
 
   def create
     @item =  Item.new(items_params)
-      @item.save
+    if @item.save
       redirect_to root_path
     else
       render :new
     end
-
-    # def show
-    #   @item = Item.find(params[:id]
-    # end
   end
 
   private
