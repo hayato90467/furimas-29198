@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = Item.order('created_at DESC')
   end
 
   def new
@@ -9,17 +9,15 @@ class ItemsController < ApplicationController
 
   def create
     @item =  Item.new(items_params)
-    if @item.valid?
       @item.save
       redirect_to root_path
     else
-      render 'new'
+      render :new
     end
 
-    def show
-      @item = Item.find(params[:id])
-  
-    end
+    # def show
+    #   @item = Item.find(params[:id]
+    # end
   end
 
   private
