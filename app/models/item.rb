@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   validates :send_day_id, presence: true, numericality: { other_than: 1 }
   validates :send_area_id, presence: true, numericality: { other_than: 1}
   validates :price, presence: true,format:  { with: /\A[a-zA-Z0-9]+\z/ },
-  numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 10000000, message: "is out of setting range"}
+  numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "is out of setting range"}
 
   belongs_to :user
   # # has_one : purchase

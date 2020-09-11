@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.order('created_at DESC')
+    @items = Item.all
   end
 
   def new
@@ -9,16 +9,23 @@ class ItemsController < ApplicationController
 
   def create
     @item =  Item.new(items_params)
-    if @item.save
+    if @item.valid?
+      @item.save
       redirect_to root_path
     else
-      render :new
+      render 'new'
+    end
+
+    def show
+      @item = Item.find(params[:id])
+  
     end
   end
 
   private
 
   def items_params
-    params.require(:item).permit(:image, :name, :name_condition_id, :price, :name_description, :name_category_id, :send_burden_id, :send_area_id, :send_day_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :name_condition_id, :price, :name_description, 
+      :name_category_id, :send_burden_id, :send_area_id, :send_day_id).merge(user_id: current_user.id)
   end
 end
