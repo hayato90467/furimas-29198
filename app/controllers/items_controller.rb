@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   def index
-    @items = Item.all
+    @items = @items = Item.order('created_at DESC')
   end
 
     def new
@@ -20,26 +20,15 @@ class ItemsController < ApplicationController
      @item = Item.find(params[:id])
    end
 
-   def edit
-    @item = Item.find(params[:id])
-  end
-
-  def update
-    @item = Tweet.find(params[:id])
-    item.update(item_params)
-  end
-
-  #  def checked
+  #  def edit
   #   @item = Item.find(params[:id])
-  #   if item.checked 
-  #     item.update(checked: false)
-  #   else
-  #     item.update(checked: true)
-  #   end
-
-  #   item = item.find(params[:id])
-  #   render json: { post: item }
   # end
+
+  # def update
+  #   @item = Tweet.find(params[:id])
+  #   item.update(item_params)
+  # end
+
 
    private
 
