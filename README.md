@@ -29,6 +29,7 @@
 | Column               |   Type    |         Options                |
 | -------------------- | --------  | ------------------------------ |
 | user_id              | integer   | null: false, foreign_key: true |
+| image                | string    | null: false,                   |
 | name                 | string    | null: false,                   |
 | name_description     | text      | null: false,                   |
 | name_category_id     | integer   | null: false,                   |
