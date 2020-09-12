@@ -5,6 +5,7 @@ window.addEventListener('load', function(){
     let taxprice = document.getElementById("add-tax-price")
     let profit = document.getElementById("profit")
     let list = document.getElementById("price").value
+    console.log
     
     let tax = Math.floor(list * 0.1)
     let profits = Math.floor(list * 0.9)
