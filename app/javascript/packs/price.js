@@ -9,7 +9,6 @@ window.addEventListener('load', function(){
     let tax = Math.floor(list * 0.1)
     let profits = Math.floor(list * 0.9)
 
-
     document.getElementById("add-tax-price").textContent = tax
     document.getElementById("profit").textContent = profits
 
