@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :index]
-  
+  before_action :set_item, only: [:show, :edit, :update]
   def index
     @items = Item.order('created_at DESC')
   end
 
     def new
-    @item =  Item.new
+      @item =  Item.new
     end
 
    def create
@@ -19,25 +19,26 @@ class ItemsController < ApplicationController
    end
 
    def show
-     @item = Item.find(params[:id])
+     
    end
 
-     def edit
-     @item = Item.find(params[:id])
-    flash[:notice] =  unless current_user
-     current_user.update(item_params)
+    def edit    
+      flash[:notice] =  unless current_user
+      current_user.update(item_params)
     end
    end
 
-  def update
-    @item = Tweet.find(params[:id])
-    if current_user.update(item_params)
+   def update      
+    if item_user.update(item_params)
        redirect_to root_path
     else
       render :edit
     end
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
    private
 
