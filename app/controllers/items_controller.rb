@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:edit]
-  # before_action :move_to_index, except: [:edit]
+  before_action :authenticate_user!, only: [:edit, :index]
+  
   def index
     @items = Item.order('created_at DESC')
   end
@@ -25,8 +25,6 @@ class ItemsController < ApplicationController
      def edit
      @item = Item.find(params[:id])
     flash[:notice] =  unless current_user
-   
-    # current_user  user_signed_in?
      current_user.update(item_params)
     end
    end
@@ -39,13 +37,6 @@ class ItemsController < ApplicationController
       render :edit
     end
   end
-
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
-  end
-
 
 
    private
