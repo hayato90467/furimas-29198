@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+  # with_options presence: true do
   validates :nickname, presence: true
   validates :password, presence: true, length: { minimum: 6 }
   validates :password, presence: true, format: { with: /\A^(?=.*?[a-zA-Z])(?=.*?\d)[a-zA-Z\d]/}
@@ -15,4 +17,5 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :purchase
-end
+ end
+# end 

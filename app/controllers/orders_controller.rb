@@ -2,10 +2,11 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   
  def index
+  @order = Order.new
  end
 
  def create
-   @order = Order.new(price: order_params[:price])
+   @order = Order.new(order_params)
    if @order.valid?
      pay_item
      @order.save
@@ -22,7 +23,7 @@ class OrdersController < ApplicationController
  end
 
  def pay_item
-   Payjp.api_key = "sk_test_1945a0b59419c28be9f82aa8"
+   Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
    Payjp::Charge.create(
      amount: order_params[:price],
      card: order_params[:token],
