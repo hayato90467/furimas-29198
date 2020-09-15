@@ -2,7 +2,12 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
   
  def index
+  @items = Item.find(params[:item_id])
   @order = Order.new
+ end
+
+ def new
+   @order = Order.new
  end
 
  def create
@@ -29,4 +34,5 @@ class OrdersController < ApplicationController
      card: order_params[:token],
      currency:'jpy'
    )
- end
+  end
+end
