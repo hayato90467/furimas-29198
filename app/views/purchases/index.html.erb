@@ -32,7 +32,6 @@
     <%# /支払額の表示 %>
 
     <%= form_with  url: item_purchases_path(@items.id),  method: :post, class: 'transaction-form-wrap',local: true do |f| %>
-    <%# このうえで購入者purchaseでcreateをしたものがある。そして下の記載をしたものをコントローラーで後モデルに記載をする%>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
