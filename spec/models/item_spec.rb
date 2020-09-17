@@ -1,7 +1,6 @@
 require 'rails_helper'
 describe Item do
   before do
-    # @user = FactoryBot.create(:user)
     @item = FactoryBot.build(:item)
     @item.image = fixture_file_upload(Rails.root.join('public', 'apple-touch-icon.png'), 'image/png')
   end
