@@ -8,14 +8,13 @@ class PurchaseAddress
     validates :city
     validates :building
     validates :address
-    validates :mobile
+    validates :mobile, presence: true, format: { with: /\A\d{10}\z/ }
     validates :token
-
    end
   def save
     Address.create(post: post, prefectures_id: prefectures_id, city: city, building: building,
                    address: address, mobile: mobile)
     Purchase.create(item_id: item_id, user_id: user_id)
   end
- end
+end
 # end
