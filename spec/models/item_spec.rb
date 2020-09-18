@@ -10,6 +10,7 @@ describe Item do
       it 'user_idとimage、nameとname_description、name_category_id、
         name_condition_id、send_burden_id、send_day_id、send_area_id、price、入力をすれば登録できる.' do
         expect(@item).to be_valid
+       
       end
     end
     context '商品出品がうまくいかないとき' do
