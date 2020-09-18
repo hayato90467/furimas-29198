@@ -37,7 +37,7 @@ describe PurchaseAddress do
       @purchase_addresses.valid?
       expect(@purchase_addresses.errors.full_messages).to include("City can't be blank")
      end
-     it '番地が空でないと保存できないこと' do
+     it '番地が空でだと保存できないこと' do
       @purchase_addresses.building  = ""
       @purchase_addresses.valid?
       expect(@purchase_addresses.errors.full_messages).to include("Building can't be blank")
@@ -47,10 +47,15 @@ describe PurchaseAddress do
       @purchase_addresses.valid?
       expect(@purchase_addresses.errors.full_messages).to include("Mobile can't be blank")
      end
-     it '電話番号ハイフン不要で１１桁内でないとと保存できないこと' do
+     it '電話番号ハイフン不要で１1桁内でないとと保存できないこと' do
       @purchase_addresses.mobile = '000-3111-046'
       @purchase_addresses.valid?
       expect(@purchase_addresses.errors.full_messages).to include("Mobile is invalid")
+     end
+      it 'tokenがないと保存できない' do
+        @purchase_addresses.token = ""
+        @purchase_addresses.valid?
+      expect(@purchase_addresses.errors.full_messages).to include("Token can't be blank")
      end
     end
   end
