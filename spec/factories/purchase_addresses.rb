@@ -7,6 +7,5 @@ FactoryBot.define do
     city                    { '京都' }
     building                { '東京ハイツ' }
     token                    {'aaaa'}
-    # price                   { 2000 }
   end
 end

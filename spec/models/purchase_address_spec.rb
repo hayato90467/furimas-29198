@@ -50,43 +50,8 @@ describe PurchaseAddress do
      it '電話番号ハイフン不要で１１桁内でないとと保存できないこと' do
       @purchase_addresses.mobile = '000-3111-046'
       @purchase_addresses.valid?
-      binding.pry
       expect(@purchase_addresses.errors.full_messages).to include("Mobile is invalid")
      end
-      # it '都道府県を選択していないと保存できないこと' do
-     #   @purchase_addresses.prefecture = 0
-     #   @purchase_addresses.valid?
-     #   expect(@purchase_addresses.errors.full_messages).to include("Prefecture can't be blank")
-      # end
-     # it 'cityは空でも保存できること' do
-     #   @upurchase_addresses .city = nil
-      #   expect(@user_donation).to be_valid
-     # end
-     it 'priceが空だと保存できないこと' do
-      @purchase_addresses.price = nil
-      @purchase_addresses.valid?
-      expect(@purchase_addresses.errors.full_messages).to include("Price can't be blank")
-     end
-     # it 'priceが全角数字だと保存できないこと' do
-     #   @purchase_addresses.price = '２０００'
-     #   @purchase_addresses.valid?
-     #   expect(@purchase_addresses.errors.full_messages).to include("Price is invalid. Input half-width characters.")
-     # end
-     # it '有効期限が空だと保存できないこと' do
-     #   @purchase_addresses .name_reading = nil
-     #   @purchase_addresses .valid?
-     #   expect(@user_donation.errors.full_messages).to include("Name reading can't be blank")   
-     # end
-     # it '有効期限(月）が空だと保存できないこと' do
-     #   @purchase_addresses .name_reading = nil
-     #   @purchase_addresses .valid?
-     #   expect(@user_donation.errors.full_messages).to include("Name reading can't be blank")
-     # end
-     # it 'セキュリティーコードが空だと保存できないこと' do
-     #   @purchase_addresses .name_reading = nil
-     #   @purchase_addresses .valid?
-     #   expect(@user_donation.errors.full_messages).to include("Name reading can't be blank")
-     # end
     end
   end
 end
