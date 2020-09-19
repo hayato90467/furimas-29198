@@ -4,13 +4,13 @@ describe User do
     @user = FactoryBot.build(:user)
   end
 
-   describe 'ユーザー新規登録' do
+  describe 'ユーザー新規登録' do
     context '新規登録がうまくいくとき' do
       it "nicknameとemail、passwordとpassword_confirmation、first.name、
           familyname、family_name_kana、first_name_kana、入力をすれば登録できる。" do
         expect(@user).to be_valid
       end
-   end
+    end
 
     context '新規登録がうまくいかないとき' do
       it 'emailが空では登録できない' do
