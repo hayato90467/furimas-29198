@@ -27,6 +27,11 @@ describe PurchaseAddress do
       @purchase_addresses.valid?
       expect(@purchase_addresses.errors.full_messages).to include("Post is invalid. Include hyphen(-)")
      end
+     it '郵便番号が７桁でないと保存できないこと' do
+      @purchase_addresses.post= "12-2345"
+      @purchase_addresses.valid?
+      expect(@purchase_addresses.errors.full_messages).to include("Post is invalid. Include hyphen(-)")
+     end
      it '都道府県を選択していないと保存できないこと' do
       @purchase_addresses.prefectures_id = 0
       @purchase_addresses.valid?
@@ -47,7 +52,7 @@ describe PurchaseAddress do
       @purchase_addresses.valid?
       expect(@purchase_addresses.errors.full_messages).to include("Mobile can't be blank")
      end
-     it '電話番号ハイフン不要で１1桁内でないとと保存できないこと' do
+     it '電話番号ハイフン不要で11桁内でないとと保存できないこと' do
       @purchase_addresses.mobile = '000-3111-046'
       @purchase_addresses.valid?
       expect(@purchase_addresses.errors.full_messages).to include("Mobile is invalid")
