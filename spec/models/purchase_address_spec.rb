@@ -52,9 +52,10 @@ describe PurchaseAddress do
       @purchase_addresses.valid?
       expect(@purchase_addresses.errors.full_messages).to include("Mobile can't be blank")
      end
-     it '電話番号ハイフン不要で11桁内でないとと保存できないこと' do
-      @purchase_addresses.mobile = '000-3111-046'
+     it '電話番号ハイフン不要で10〜11桁内でないとと保存できないこと' do
+      @purchase_addresses.mobile = '00-31２'
       @purchase_addresses.valid?
+      binding.pry
       expect(@purchase_addresses.errors.full_messages).to include("Mobile is invalid")
      end
       it 'tokenがないと保存できない' do
