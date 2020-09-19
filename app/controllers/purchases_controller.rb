@@ -4,6 +4,7 @@ class PurchasesController < ApplicationController
   before_action :set_purchases, only: [:index, :create]
 
   def index
+    @purchase_address = PurchaseAddress.new
   end
 
   def new
