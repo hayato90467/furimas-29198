@@ -8,7 +8,7 @@ class PurchaseAddress
     validates :city
     validates :building
     validates :address
-    validates :mobile, format: { with: /\A\d{10, 11}\z/ }
+    validates :mobile, format: { with: /\A\d{10}\z/ }
     validates :token
   end
   def save

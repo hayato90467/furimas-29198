@@ -24,13 +24,13 @@ class PurchasesController < ApplicationController
 
   private
 
-  def curent_user
-    @item = Item.find(params[:item_id])
-    redirect_to root_path if @item.user_id == current_user.id || !@item.purchase.nil?
-  end
+   def curent_user
+     @item = Item.find(params[:item_id])
+     redirect_to root_path if @item.user_id == current_user.id || !@item.purchase.nil?
+   end
 
   def purchase_address_params
-    params.permit(:post, :prefectures_id, :city, :building, :address, :token, :mobile, :item_id, :user_id).merge(user_id: current_user.id)
+    params.require(:purchase_address).permit(:post, :prefectures_id, :city, :building, :address, :token, :mobile, :item_id, :user_id).merge(user_id: current_user.id)
   end
 
   def set_purchases
