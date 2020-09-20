@@ -22,7 +22,6 @@ class PurchasesController < ApplicationController
     end
   end
   
-
   private
 
    def curent_user
