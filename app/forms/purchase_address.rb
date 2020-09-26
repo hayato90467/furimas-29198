@@ -6,7 +6,7 @@ class PurchaseAddress
     validates :post, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
     validates :prefectures_id, numericality: { other_than: 0, message: "can't be blank" }
     validates :city
-    validates :building
+    # validates :building
     validates :address
     validates :mobile, format: { with: /\A\d{10,11}\z/ }
     validates :token
